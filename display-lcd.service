@@ -1,0 +1,14 @@
+[Unit]
+Description=Display information to lcd
+After=network.target remote-fs.target nss-lookup.target
+
+[Service]
+Type=simple
+EnvironmentFile=/etc/sysconfig/httpd
+ExecStart=python /usr/local/bin/display_lcd.py
+ExecStop=/bin/kill -WINCH ${MAINPID}
+KillSignal=SIGCONT
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
