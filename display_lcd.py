@@ -1,5 +1,4 @@
 import mh_z19
-import time
 import timeout_decorator
 import drivers
 import locale
